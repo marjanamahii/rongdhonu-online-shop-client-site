@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
-import logo from '../../images/logo.png';
+import useAuth from '../../../hooks/useAuth';
+import logo from '../../../images/logo.png';
 import './Header.css';
 
 
@@ -15,6 +15,7 @@ const Header = () => {
                 <NavLink to="/review">Order Review</NavLink>
                 <NavLink to="/inventory">Manage Inventory</NavLink>
                 <NavLink to="/payment">Payment</NavLink>
+                <NavLink to="/dashboard">Dashboard</NavLink>
                 {user.email && <NavLink to="/orders">Orders</NavLink>}
                 {user.email && <span style={{ color: 'white' }}>Hello {user.displayName} </span>}
                 {
@@ -28,3 +29,4 @@ const Header = () => {
 };
 
 export default Header;
+

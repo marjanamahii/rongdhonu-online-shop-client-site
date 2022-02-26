@@ -6,22 +6,19 @@ initializeAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
-    const [loading, setLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
+
+    // const [admin, setAdmin] = useState(false);
+
     const auth = getAuth();
-    const googleProvider = new GoogleAuthProvider();
 
     const signInUsingGoogle = () => {
-        return signInWithPopup(auth, googleProvider)
-            .finally(() => { setLoading(false) });
-    }
+        setIsLoading(true);
+        const googleProvider = new GoogleAuthProvider();
 
-    const logOut = () => {
-        setLoading(true);
-        signOut(auth)
-            .then(() => {
-                setUser({})
-            })
-            .finally(() => setLoading(false))
+        return signInWithPopup(auth, googleProvider)
+            .finally(() => setIsLoading(false))
+
     }
 
     // observe whether user auth state changed or not
@@ -35,16 +32,48 @@ const useFirebase = () => {
             else {
                 setUser({});
             }
-            setLoading(false);
+            setIsLoading(false);
         });
         return () => unsubscribe;
-    }, [])
+    }, [auth])
+
+    const logout = () => {
+        setIsLoading(true);
+        signOut(auth)
+            .then(() => {
+                setUser({})
+            })
+            .finally(() => setIsLoading(false))
+    }
+
+    const saveGoogleUser = (email, displayName) => {
+        const user = { email, displayName };
+        fetch('https://stormy-shelf-46683.herokuapp.com/users', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+
+    // checking is admin or not
+    // useEffect(() => {
+    //     fetch(`https://stormy-shelf-46683.herokuapp.com/users/${user?.email}`)
+    //         .then(res => res.json())
+    //         .then(data => setAdmin(data.admin))
+    //         .catch(err => {
+    //             console.log(err);
+    //         })
+    // }, [user?.email])
 
     return {
         user,
-        loading,
+        isLoading,
         signInUsingGoogle,
-        logOut
+        logout,
+        saveGoogleUser
     }
 }
 
