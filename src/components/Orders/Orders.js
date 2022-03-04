@@ -18,11 +18,13 @@ const Orders = () => {
         })
             .then(res => {
                 if (res.status === 200) {
+                    console.log("Found orders")
                     return res.json();
                 }
                 else if (res.status === 401) {
+                    console.log("Navigate to login");
                     // navigate.push('/login'); v5
-                    navigate('/login')
+                    // navigate('/login')
                 }
 
             })

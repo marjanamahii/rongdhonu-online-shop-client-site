@@ -3,10 +3,14 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import { clearTheCart, getStoredCart } from '../../utilities/fakedb';
 import './Shipping.css';
+import { useNavigate } from "react-router-dom";
 
 const Shipping = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { user } = useAuth();
+
+    const navigate = useNavigate();
+
     const onSubmit = data => {
         const savedCart = getStoredCart();
         data.order = savedCart;
@@ -24,9 +28,11 @@ const Shipping = () => {
                     alert('Order processed Successfully');
                     clearTheCart();
                     reset();
+                    navigate("/dashboard/orders");
                 }
             })
     };
+
     return (
         <div>
             <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>

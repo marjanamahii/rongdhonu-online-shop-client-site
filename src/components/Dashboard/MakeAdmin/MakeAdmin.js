@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import { useForm } from "react-hook-form";
+
 const MakeAdmin = () => {
 
     const [success, setSuccess] = useState(false);
-    const { token } = useAuth();
+    const { token, user } = useAuth();
     const { register, handleSubmit, reset } = useForm();
+
     const onSubmit = data => {
         const email = data.email;
-        const user = { email }
+        const requester_email = user.email;
+        const toBeAddedAsAdmin = { email, requester_email }
+
+        console.log("Body: ", toBeAddedAsAdmin);
 
         fetch(`http://localhost:7000/users/admin`, {
             method: 'PUT',
@@ -16,10 +21,11 @@ const MakeAdmin = () => {
                 'authorization': `Bearer ${token}`,
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(toBeAddedAsAdmin)
         })
             .then(res => res.json())
             .then(data => {
+                console.log("hehe aise")
                 if (data.modifiedCount) {
                     setSuccess(true);
                     reset();
