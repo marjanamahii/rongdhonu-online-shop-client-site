@@ -2,12 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import useAuth from './../../hooks/useAuth';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
     const { user } = useAuth();
-    const history = useHistory();
+    // const history = useHistory();
+    const navigate = useNavigate()
     // https://quiet-sierra-06050.herokuapp.com
     useEffect(() => {
         fetch(`http://localhost:7000/orders?email=${user.email}`, {
@@ -20,7 +21,8 @@ const Orders = () => {
                     return res.json();
                 }
                 else if (res.status === 401) {
-                    history.push('/login');
+                    // navigate.push('/login'); v5
+                    navigate('/login')
                 }
 
             })

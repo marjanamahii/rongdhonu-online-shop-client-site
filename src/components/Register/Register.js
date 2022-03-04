@@ -25,55 +25,48 @@
 
 // export default Register;
 
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import logo from '../../images/logo.png';
+const Register = ({ handleCloser }) => {
+    const [loginData, setLoginData] = useState({});
+    const navigate = useNavigate();
+    const { user, registerUser, isLoading, authError } = useAuth();
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => {
+        registerUser(data.email, data.password, data.name, navigate, handleCloser);
 
-const Register = () => {
-    const { register, handleSubmit, watch, errors, reset } = useForm();
-
-    const { handleUserRegister } = useAuth();
-
-    const onSubmit = (data) => {
-        // handleUserRegister(data.email, data.password);
-        console.log(data);
-        handleUserRegister(data.email, data.password);
-        alert('User registration successful!')
-        reset();
     };
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-6">
-                    <h3 className="mb-3">Registration Form</h3>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="mb-3">
-                            <input
-                                className="input-field form-control"
-                                name="email"
-                                placeholder="Email"
-                                type="email"
-                                {...register("email", { required: true })}
-                            />
+        <div>
+            <div className="a">
+                <div className="text-center mt-lg-3">
+                    <img src={logo} alt="" />
+                </div>
+                <h3 className="text-center fw-bolder my-lg-3">
+                    Register Now
+                    {authError}
+                </h3>
+                <div className="  d-flex justify-content-center">
+                    <div className="">
+                        <div className="a">
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <label htmlFor="">Name : </label>
+                                <input type="text" {...register("name")} />
+                                <label htmlFor="">Email : </label>
+                                <input type="email" {...register("email")} />
+                                <label htmlFor="">Password : </label>
+                                <input type="password" {...register("password")} />
+
+                                <div className="a">
+                                    <button className="codepickjs-btn w-100">Register</button>
+                                </div>
+                            </form>
+                            <p className='text-center mt-3'>Already have an account ? <Link to="/login">Log in Now</Link></p>
                         </div>
-
-                        <div className="mb-3">
-                            <input
-                                className="input-field form-control"
-                                name="password"
-                                type="password"
-                                placeholder="Password"
-                                {...register("password", { required: true })}
-                            />
-                        </div>
-
-
-                        <input
-                            className="submit-btn btn btn-danger mt-3"
-                            type="submit"
-                            value="Register"
-                        />
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

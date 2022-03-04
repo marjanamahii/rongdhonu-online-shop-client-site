@@ -1,0 +1,48 @@
+/* .header{
+    text-align: center;
+}
+.logo{
+    height: 50px;
+}
+.header nav {
+    background-color: black;
+    line-height: 40px;
+}
+.header nav a{
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 20px;
+}
+.header nav a:hover{
+    background-color: lightgray;
+} */
+.nav-bg{
+    background-color: black;
+}
+
+.menu-color{
+    color: rgb(255, 255, 255) !important;
+    font-weight: bold;
+}
+.userImg{
+    width: 40px;
+    border-radius: 100%;
+}
+.profile-menu-box:hover{
+    background-color: #ffe222 !important;
+    color: #0f0826 !important;
+    cursor: pointer;
+}
+.profile-menu-box{
+    background-color: #ffffff !important;
+    color: rgb(0, 0, 0) !important;
+    transition: all 0.3s;
+    text-decoration: none;
+    width: 50%;
+}
+.offcanvas-body, .offcanvas-header{
+    background-color: #0f0826 !important;
+    color: rgb(0, 0, 0) !important;
+}

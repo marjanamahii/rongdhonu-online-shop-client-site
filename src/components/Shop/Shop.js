@@ -5,6 +5,7 @@ import { addToDb } from '../../utilities/fakedb';
 import './Shop.css';
 import useCart from '../../hooks/useCart';
 import { Link } from 'react-router-dom';
+import Header from '../Shared/Header/Header/Header';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -56,6 +57,7 @@ const Shop = () => {
 
     return (
         <>
+            {/* <Header></Header> */}
             <div className="search-container">
                 <input
                     type="text"
@@ -85,7 +87,7 @@ const Shop = () => {
                 </div>
                 <div className="cart-container">
                     <Cart cart={cart}>
-                        <Link to="/review">
+                        <Link to="/orderreview">
                             <button className="btn-regular">Review Your Order</button>
                         </Link>
                     </Cart>

@@ -13,12 +13,12 @@ const Footer = () => {
                         <div className="row">
                             <div className="col-lg-3 col-sm-6">
                                 <div className="address">
-                                    <h3 className="text-uppercase fw-bold text-white">rongdhonu.inc</h3>
+                                    <h3 className="fw-bold text-white">Rongdhonu Shop</h3>
                                     <p className="mb-4 mt-4">
                                         <FontAwesomeIcon icon={faMapMarkerAlt} /> Dhaka, Bangladesh, 1206.
                                     </p>
                                     <p>
-                                        <FontAwesomeIcon icon={faPhoneAlt} /> 01710101011 (10AM-5PM)
+                                        <FontAwesomeIcon icon={faPhoneAlt} /> 01710101011 (09AM-10PM)
                                     </p>
                                     <p>
                                         <FontAwesomeIcon icon={faEnvelope} /> rongdhonushop@gmail.com
@@ -51,7 +51,7 @@ const Footer = () => {
                                     <li><i className="fas fa-check"></i> <HashLink as={HashLink} to="/home#allPackages">Order Status</HashLink></li>
                                     <li><i className="fas fa-check"></i> <HashLink as={HashLink} to="/home#allPackages">Returns</HashLink></li>
                                     <li><i className="fas fa-check"></i> <HashLink as={HashLink} to="/home#allPackages">Payment Options</HashLink></li>
-                                    <li><i className="fas fa-check"></i> <HashLink as={HashLink} to="/home#allPackages">Contact Us</HashLink></li>
+                                    <li><i className="fas fa-check"></i> <HashLink as={HashLink} to="/contact">Contact Us</HashLink></li>
                                 </ul>
 
                             </div>

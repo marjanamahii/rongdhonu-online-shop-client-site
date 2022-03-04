@@ -1,4 +1,5 @@
-.App {
+/* Default */
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +36,247 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* New Added */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+     
 }
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    height: 100%;
+    margin: 0;
+    
+    
+}
+.top-header-text{
+  color: gray;
+}
+img{
+    pointer-events: none;
+}
+ifram{
+    pointer-events: none;
+}
+.codepickjs-btn{
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    transition: all 0.3s;
+}
+.codepickjs-btn:hover{
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    padding: 0.5rem 0.8rem;
+}
+.text-bg{
+    background-color: black !important;
+    color: white !important;
+    font-weight: 900 !important;
+}
+
+:root {
+    --surface-color: black;
+    --curve: 40;
+  }
+  
+* {
+    box-sizing: border-box;
+  }
+  
+  
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0vw;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+.cardc {
+    position: relative;
+    display: block;
+    height: 100%;
+    border-radius: calc(var(--curve) * 1px);
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid white;
+  }
+  
+.card__image {
+    width: 100%;
+    height: auto;
+  }
+  
+.card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: calc(var(--curve) * 1px);
+    background-color: var(--surface-color);
+    transform: translateY(100%);
+    transition: 0.2s ease-in-out;
+    
+  }
+  
+.cardc:hover .card__overlay {
+    transform: translateY(0);
+  }
+  
+.card__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 2em;
+    border-radius: calc(var(--curve) * 1px) 0 0 0;
+    background-color: var(--surface-color);
+    transform: translateY(-100%);
+    transition: 0.2s ease-in-out;
+  }
+  
+.card__arc {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    z-index: 1;
+    
+  }
+  
+.card__arc path {
+    fill: var(--surface-color);
+    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+  }
+  
+  .cardc:hover .card__header {
+    transform: translateY(0);
+  }
+  
+  .card__thumb {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  
+  .card__title {
+    font-size: 1em;
+    margin: 0 0 0.3em;
+    color: white;
+  }
+  
+  .card__tagline {
+    display: block;
+    margin: 1em 0;
+    font-family: "MockFlowFont";
+    font-size: 0.8em;
+    color: #d7bdca;
+    
+  }
+  
+  .card__status {
+    font-size: 0.8em;
+    color: #d7bdca;
+  }
+  
+  .card__description {
+    padding: 0 2em 2em;
+    margin: 0;
+    color: #d7bdca;
+    font-family: "MockFlowFont";
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    
+  }
+  input[type="text"]{
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  input[type="number"]{
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  input[type="email"]{
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  input[type="password"]{
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  select{
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  textarea{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  label{
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .upload-image{
+    background-color: red;
+    display: block;
+  }
+
+
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .btn-f {
+    border: 2px solid black;
+    color: rgb(255, 255, 255);
+    background-color: #1F223C;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+  .social{
+    cursor: pointer;
+  }
